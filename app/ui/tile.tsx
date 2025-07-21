@@ -1,5 +1,16 @@
-export function Tile() {
+"use client";
+
+import { useState } from "react";
+
+export function Tile({ colorId }: { colorId: number }) {
+    const [isFilled, setIsFilled] = useState(false);
     return (
-        <div className="w-20 h-20 m-1 bg-white"></div>
+        <div
+            className="tile"
+            style={{backgroundColor: isFilled ? "white" : "black"}}
+            onClick={() => {
+                setIsFilled(prevIsFilled => !prevIsFilled)
+            }}
+        />
     )
 }
