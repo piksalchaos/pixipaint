@@ -29,6 +29,14 @@ body {
   width: 6rem;
   height: 6rem;
   border-width: 0.25rem;
-  border-radius: 0.2rem;
+  border-radius: 0.4rem;
   margin: 0.2rem;
+}
+
+.color-button {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 3rem;
+  margin: 1rem;
+  background-color: white;
 }
