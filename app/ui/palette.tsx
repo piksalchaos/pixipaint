@@ -3,11 +3,11 @@ import { getColorStyleValue } from "../lib/color-style";
 export function Palette({
   colorAmount,
   chosenColorId,
-  onColorButtonClick,
+  handleColorSelected,
 }: {
   colorAmount: number;
   chosenColorId: number;
-  onColorButtonClick: (colorId: number) => void;
+  handleColorSelected: (colorId: number) => void;
 }) {
   return (
     <div className="flex">
@@ -17,7 +17,7 @@ export function Palette({
             key={colorId}
             colorId={colorId}
             isChosen={colorId === chosenColorId}
-            onClick={onColorButtonClick}
+            handleSelected={handleColorSelected}
           />
         );
       })}
@@ -28,11 +28,11 @@ export function Palette({
 function ColorButton({
   colorId,
   isChosen,
-  onClick,
+  handleSelected,
 }: {
   colorId: number;
   isChosen: boolean;
-  onClick: (colorId: number) => void;
+  handleSelected: (colorId: number) => void;
 }) {
   return (
     <div
@@ -42,7 +42,9 @@ function ColorButton({
         borderWidth: "0.25rem",
         borderColor: isChosen ? "white" : "transparent",
       }}
-      onClick={() => onClick(colorId)}
+      onClick={() => {
+        if (!isChosen) handleSelected(colorId);
+      }}
     />
   );
 }

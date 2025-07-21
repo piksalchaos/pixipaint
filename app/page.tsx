@@ -11,14 +11,23 @@ export default function Home() {
   });
 
   let [chosenColorId, setChosenColorId] = useState(0);
+  let totalMistakes = 0;
 
+  const handleTileMistake = () => {
+    totalMistakes++;
+    console.log(totalMistakes);
+  };
   return (
     <div>
-      <Grid pattern={flowerPattern} />
+      <Grid
+        pattern={flowerPattern}
+        chosenColorId={chosenColorId}
+        handleTileMistake={handleTileMistake}
+      />
       <Palette
         colorAmount={flowerPattern.colors.length}
         chosenColorId={chosenColorId}
-        onColorButtonClick={(colorId) => {
+        handleColorSelected={(colorId) => {
           setChosenColorId(colorId);
         }}
       />
