@@ -35,9 +35,7 @@ export function ColumnMarkers({
               alignItems: "center",
             }}
           >
-            {columnMarker.map(({ count, groups }, colorId) => (
-              <MarkerNumber count={count} groups={groups} colorId={colorId} />
-            ))}
+            <Marker markerData={columnMarker} />
           </div>
         );
       })}
@@ -81,9 +79,7 @@ export function RowMarkers({
               alignItems: "center",
             }}
           >
-            {rowMarker.map(({ count, groups }, colorId) => (
-              <MarkerNumber count={count} groups={groups} colorId={colorId} />
-            ))}
+            <Marker markerData={rowMarker} />
           </div>
         );
       })}
@@ -91,6 +87,17 @@ export function RowMarkers({
   );
 }
 
+function Marker({
+  markerData,
+}: {
+  markerData: Array<{ count: number; groups: number }>;
+}) {
+  return markerData.map(({ count, groups }, colorId) => {
+    if (count > 0) {
+      return <MarkerNumber count={count} groups={groups} colorId={colorId} />;
+    }
+  });
+}
 function MarkerNumber({
   count,
   groups,
