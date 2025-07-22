@@ -10,8 +10,20 @@
   grid-area: infoDisplay;
   font-size: 2rem;
   align-content: center;
+  padding: 1.5rem;
   background-color: var(--highlight-low);
   border-top-left-radius: var(--game-border-radius);
+}
+
+.iconParagraph {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
 }
 
 .tiles {

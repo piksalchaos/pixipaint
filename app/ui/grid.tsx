@@ -42,8 +42,41 @@ export function Grid({
   return (
     <div className={styles.grid}>
       <div className={styles.infoDisplay}>
-        <p>{formatTime(elapsedSeconds)}</p>
-        <p>mistakes: {mistakeCount} </p>
+        <div className={styles.iconParagraph}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            className={styles.icon}
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+          <p>{formatTime(elapsedSeconds)}</p>
+        </div>
+        <div className={styles.iconParagraph}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            className={styles.icon}
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+
+          <p>{mistakeCount}</p>
+        </div>
       </div>
       <ColumnMarkers width={width} height={height} grid={grid} />
       <RowMarkers width={width} height={height} grid={grid} />

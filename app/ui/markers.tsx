@@ -26,7 +26,7 @@ export function ColumnMarkers({
             className={styles.columnMarker}
             style={{
               borderTopRightRadius:
-                column === width - 1 ? "var(--game-border-radius" : 0,
+                column === width - 1 ? "var(--game-border-radius)" : 0,
               backgroundColor:
                 column % 2 == 0
                   ? "var(--highlight-med)"
