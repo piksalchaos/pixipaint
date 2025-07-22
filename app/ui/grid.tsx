@@ -12,10 +12,6 @@ export function Grid({
   handleTileMistake: () => void;
 }) {
   const { width, height, grid } = pattern;
-  const formattedGrid = [];
-  for (let i = 0; i < height; i++) {
-    formattedGrid.push(grid.slice(i * width, i * width + width));
-  }
 
   return (
     <div
@@ -26,7 +22,7 @@ export function Grid({
       }}
     >
       <ColumnMarkers width={width} height={height} grid={grid} />
-      <RowMarkers />
+      <RowMarkers width={width} height={height} grid={grid} />
       <div
         style={{
           gridArea: "tiles",

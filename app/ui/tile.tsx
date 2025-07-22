@@ -13,19 +13,20 @@ export function Tile({
   handleMistake: () => void;
 }) {
   const [isFilled, setIsFilled] = useState(false);
+  const handleClick = () => {
+    if (isFilled) return;
+    if (chosenColorId === colorId) {
+      setIsFilled(true);
+    }
+    handleMistake();
+  };
   return (
     <div
       className="tile"
       style={{
         backgroundColor: isFilled ? getColorStyleValue(colorId) : "transparent",
       }}
-      onClick={() => {
-        if (isFilled) return;
-        if (chosenColorId === colorId) {
-          setIsFilled(true);
-        }
-        handleMistake();
-      }}
+      onClick={handleClick}
     />
   );
 }
