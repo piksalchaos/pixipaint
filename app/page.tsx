@@ -18,7 +18,15 @@ export default function Home() {
     console.log(totalMistakes);
   };
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
       <Grid
         pattern={flowerPattern}
         chosenColorId={chosenColorId}

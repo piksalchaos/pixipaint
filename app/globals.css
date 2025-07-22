@@ -26,11 +26,8 @@ body {
 }
 
 .tile {
-  width: 6rem;
-  height: 6rem;
   border-width: 0.25rem;
   border-radius: 0.4rem;
-  margin: 0.2rem;
 }
 
 .color-button {

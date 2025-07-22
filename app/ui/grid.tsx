@@ -1,4 +1,5 @@
 import { GridPattern } from "../lib/definitions";
+import { ColumnMarkers, RowMarkers } from "./markers";
 import { Tile } from "./tile";
 
 export function Grid({
@@ -17,21 +18,36 @@ export function Grid({
   }
 
   return (
-    <div>
-      {formattedGrid.map((row, y) => {
-        return (
-          <div className="flex" key={y}>
-            {row.map((colorId, x) => (
-              <Tile
-                key={x}
-                colorId={colorId}
-                chosenColorId={chosenColorId}
-                handleMistake={handleTileMistake}
-              />
-            ))}
-          </div>
-        );
-      })}
+    <div
+      style={{
+        display: "grid",
+        gridTemplateAreas: "'. columnMarkers' 'rowMarkers tiles'",
+        justifyContent: "center",
+      }}
+    >
+      <ColumnMarkers width={width} height={height} grid={grid} />
+      <RowMarkers />
+      <div
+        style={{
+          gridArea: "tiles",
+          display: "grid",
+          gridTemplateColumns: `repeat(${width}, 6rem)`,
+          gridTemplateRows: `repeat(${height}, 6rem)`,
+          alignContent: "center",
+          justifyContent: "center",
+        }}
+      >
+        {grid.map((colorId, i) => {
+          return (
+            <Tile
+              key={i}
+              colorId={colorId}
+              chosenColorId={chosenColorId}
+              handleMistake={handleTileMistake}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
