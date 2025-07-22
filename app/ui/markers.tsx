@@ -1,5 +1,5 @@
 import { getColorStyleValue } from "../lib/color-style";
-import styles from "./grid.module.css";
+import styles from "./game.module.css";
 
 export function ColumnMarkers({
   width,

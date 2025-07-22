@@ -1,4 +1,5 @@
 import { getColorStyleValue } from "../lib/color-style";
+import styles from "./game.module.css";
 
 export function Palette({
   colorAmount,
@@ -36,10 +37,9 @@ function ColorButton({
 }) {
   return (
     <div
-      className="color-button"
+      className={styles.colorButton}
       style={{
         backgroundColor: getColorStyleValue(colorId),
-        borderWidth: "0.25rem",
         borderColor: isChosen ? "white" : "transparent",
       }}
       onClick={() => {

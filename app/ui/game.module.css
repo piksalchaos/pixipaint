@@ -1,4 +1,4 @@
-.grid {
+.game {
   display: grid;
   grid-template-areas:
     "infoDisplay columnMarkers"
@@ -26,7 +26,7 @@
   height: 32px;
 }
 
-.tiles {
+.tileGrid {
   grid-area: tiles;
   display: grid;
   align-content: center;
@@ -83,4 +83,14 @@
   position: absolute;
   right: 10%;
   bottom: 5%;
+}
+
+.colorButton {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 3rem;
+  border-width: 0.5rem;
+  
+  margin: 1rem;
+  background-color: white;
 }
