@@ -1,4 +1,5 @@
 import { getColorStyleValue } from "../lib/color-style";
+import styles from "./grid.module.css";
 
 export function ColumnMarkers({
   width,
@@ -17,25 +18,22 @@ export function ColumnMarkers({
   const columnMarkers = createMarkers(columns, maxColorId);
 
   return (
-    <div
-      style={{
-        gridArea: "columnMarkers",
-        display: "flex",
-      }}
-    >
+    <div className={styles.columnMarkers}>
       {columnMarkers.map((columnMarker, column) => {
         return (
           <div
             key={column}
+            className={styles.columnMarker}
             style={{
-              display: "flex",
-              flexDirection: "column-reverse",
-              borderWidth: "2px",
-              width: "100%",
-              alignItems: "center",
+              borderTopRightRadius:
+                column === width - 1 ? "var(--game-border-radius" : 0,
+              backgroundColor:
+                column % 2 == 0
+                  ? "var(--highlight-med)"
+                  : "var(--highlight-low)",
             }}
           >
-            <Marker markerData={columnMarker} />
+            <MarkerNumbers markerData={columnMarker} />
           </div>
         );
       })}
@@ -60,26 +58,20 @@ export function RowMarkers({
   const rowMarkers = createMarkers(rows, maxColorId);
 
   return (
-    <div
-      style={{
-        gridArea: "rowMarkers",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <div className={styles.rowMarkers}>
       {rowMarkers.map((rowMarker, row) => {
         return (
           <div
             key={row}
+            className={styles.rowMarker}
             style={{
-              display: "flex",
-              flexDirection: "row-reverse",
-              borderWidth: "2px",
-              height: "100%",
-              alignItems: "center",
+              borderBottomLeftRadius:
+                row === height - 1 ? "var(--game-border-radius)" : 0,
+              backgroundColor:
+                row % 2 == 0 ? "var(--highlight-med)" : "var(--highlight-low)",
             }}
           >
-            <Marker markerData={rowMarker} />
+            <MarkerNumbers markerData={rowMarker} />
           </div>
         );
       })}
@@ -87,17 +79,25 @@ export function RowMarkers({
   );
 }
 
-function Marker({
+function MarkerNumbers({
   markerData,
 }: {
   markerData: Array<{ count: number; groups: number }>;
 }) {
   return markerData.map(({ count, groups }, colorId) => {
     if (count > 0) {
-      return <MarkerNumber count={count} groups={groups} colorId={colorId} />;
+      return (
+        <MarkerNumber
+          key={colorId}
+          count={count}
+          groups={groups}
+          colorId={colorId}
+        />
+      );
     }
   });
 }
+
 function MarkerNumber({
   count,
   groups,
@@ -108,24 +108,16 @@ function MarkerNumber({
   colorId: number;
 }) {
   return (
-    <div
-      style={{
-        display: "flex",
-        width: "4rem",
-        height: "4rem",
-        justifyContent: "center",
-        alignItems: "center",
-        // borderWidth: "0.1rem",
-      }}
-    >
+    <div className={styles.markerNumber}>
       <p
-        style={{
-          color: getColorStyleValue(colorId),
-          fontSize: "2rem",
-        }}
+        className={styles.markerNumberCount}
+        style={{ color: getColorStyleValue(colorId) }}
       >
         {count}
       </p>
+      {groups > 1 ? (
+        <p className={styles.markerNumberGroups}>{groups}</p>
+      ) : null}
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { getColorStyleValue } from "../lib/color-style";
+import styles from "./grid.module.css";
 
 export function Tile({
   colorId,
@@ -17,12 +18,13 @@ export function Tile({
     if (isFilled) return;
     if (chosenColorId === colorId) {
       setIsFilled(true);
+      return;
     }
     handleMistake();
   };
   return (
     <div
-      className="tile"
+      className={styles.tile}
       style={{
         backgroundColor: isFilled ? getColorStyleValue(colorId) : "transparent",
       }}

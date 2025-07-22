@@ -11,12 +11,6 @@ export default function Home() {
   });
 
   let [chosenColorId, setChosenColorId] = useState(0);
-  let totalMistakes = 0;
-
-  const handleTileMistake = () => {
-    totalMistakes++;
-    console.log(totalMistakes);
-  };
   return (
     <div
       style={{
@@ -27,11 +21,7 @@ export default function Home() {
         height: "100vh",
       }}
     >
-      <Grid
-        pattern={flowerPattern}
-        chosenColorId={chosenColorId}
-        handleTileMistake={handleTileMistake}
-      />
+      <Grid pattern={flowerPattern} chosenColorId={chosenColorId} />
       <Palette
         colorAmount={flowerPattern.colors.length}
         chosenColorId={chosenColorId}

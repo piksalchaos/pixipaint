@@ -1,0 +1,74 @@
+.grid {
+  display: grid;
+  grid-template-areas:
+    "infoDisplay columnMarkers"
+    "rowMarkers tiles";
+  justify-content: center;
+}
+
+.infoDisplay {
+  grid-area: infoDisplay;
+  font-size: 2rem;
+  align-content: center;
+  background-color: var(--highlight-low);
+  border-top-left-radius: var(--game-border-radius);
+}
+
+.tiles {
+  grid-area: tiles;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.tile {
+  border-width: 3px;
+  border-color: rgb(57, 57, 57)
+}
+
+.columnMarkers {
+  grid-area: columnMarkers;
+  display: flex;
+}
+
+.columnMarker {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  align-items: center;
+}
+
+.rowMarkers {
+  grid-area: rowMarkers;
+  display: flex;
+  flex-direction: column;
+}
+
+.rowMarker {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 100%;
+  align-items: center;
+  /* border-radius: 24px 0 0 24px; */
+}
+
+.markerNumber {
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.markerNumberCount {
+  font-size: 2rem;
+  position: absolute;
+}
+
+.markerNumberGroups {
+  font-size: 1.5rem;
+  position: absolute;
+  right: 10%;
+  bottom: 5%;
+}
