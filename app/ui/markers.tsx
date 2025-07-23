@@ -25,8 +25,6 @@ export function ColumnMarkers({
             key={column}
             className={styles.columnMarker}
             style={{
-              borderTopRightRadius:
-                column === width - 1 ? "var(--game-border-radius)" : 0,
               backgroundColor:
                 column % 2 == 0
                   ? "var(--highlight-med)"
@@ -65,8 +63,6 @@ export function RowMarkers({
             key={row}
             className={styles.rowMarker}
             style={{
-              borderBottomLeftRadius:
-                row === height - 1 ? "var(--game-border-radius)" : 0,
               backgroundColor:
                 row % 2 == 0 ? "var(--highlight-med)" : "var(--highlight-low)",
             }}

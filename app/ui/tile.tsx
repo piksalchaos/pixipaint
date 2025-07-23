@@ -26,7 +26,9 @@ export function Tile({
     <div
       className={styles.tile}
       style={{
-        backgroundColor: isFilled ? getColorStyleValue(colorId) : "transparent",
+        backgroundColor: isFilled
+          ? getColorStyleValue(colorId)
+          : "var(--background)",
       }}
       onClick={handleClick}
     />

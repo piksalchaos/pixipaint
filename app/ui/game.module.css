@@ -4,6 +4,10 @@
     "infoDisplay columnMarkers"
     "rowMarkers tiles";
   justify-content: center;
+  background-color: var(--highlight-med);
+  padding: var(--tile-margin);
+  border-radius: calc(var(--tile-border-radius) + var(--tile-margin)*2) 45px;
+  overflow: hidden;
 }
 
 .infoDisplay {
@@ -12,7 +16,8 @@
   align-content: center;
   padding: 1.5rem;
   background-color: var(--highlight-low);
-  border-top-left-radius: var(--game-border-radius);
+  margin: var(--tile-margin);
+  border-radius: var(--tile-border-radius);
 }
 
 .iconParagraph {
@@ -27,6 +32,7 @@
 }
 
 .tileGrid {
+  background-color: var(--highlight-med);
   grid-area: tiles;
   display: grid;
   align-content: center;
@@ -34,8 +40,8 @@
 }
 
 .tile {
-  border-width: 3px;
-  border-color: rgb(57, 57, 57)
+  border-radius: var(--tile-border-radius);
+  margin: var(--tile-margin);
 }
 
 .columnMarkers {
@@ -48,6 +54,8 @@
   flex-direction: column-reverse;
   width: 100%;
   align-items: center;
+  border-radius: var(--tile-border-radius);
+  margin: var(--tile-margin);
 }
 
 .rowMarkers {
@@ -61,7 +69,8 @@
   flex-direction: row-reverse;
   height: 100%;
   align-items: center;
-  /* border-radius: 24px 0 0 24px; */
+  border-radius: var(--tile-border-radius);
+  margin: var(--tile-margin);
 }
 
 .markerNumber {

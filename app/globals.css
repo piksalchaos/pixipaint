@@ -3,9 +3,11 @@
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
-  --highlight-low: #151515;
-  --highlight-med: #1b1b1b;
+  --highlight-low: #1c1c1c;
+  --highlight-med: #242424;
   --game-border-radius: 20px;
+  --tile-border-radius: 8px;
+  --tile-margin: 4px;
 }
 
 body {
