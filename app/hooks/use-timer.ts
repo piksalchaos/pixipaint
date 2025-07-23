@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 
-export function useTimer() {
+export function useTimer(isRunningAtStart: boolean = false) {
   const [seconds, setSeconds] = useState(0);
-  const [isRunning, setIsRunning] = useState(true);
+  const [isRunning, setIsRunning] = useState(isRunningAtStart);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const start = useCallback(() => {

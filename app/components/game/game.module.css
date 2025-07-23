@@ -1,4 +1,12 @@
+
 .game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.puzzle {
   display: grid;
   grid-template-areas:
     "infoDisplay columnMarkers"

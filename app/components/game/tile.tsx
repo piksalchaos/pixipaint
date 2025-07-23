@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { getColorStyleValue } from "../lib/color-style";
+import { getColorStyleValue } from "../../lib/color-style";
 import styles from "./game.module.css";
 
 export function Tile({
