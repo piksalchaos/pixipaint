@@ -21,7 +21,7 @@ export function WinPopup({
     setAreResultsCopied(true);
     const textToCopy = `[PIXIPAD]\nDay ${day}\nTime: ${formatTime(
       seconds
-    )}\nMistakes: ${mistakes}`;
+    )}\nMistakes: ${mistakes}\nhttps://pixipaint-nu.vercel.app`;
     try {
       await navigator.clipboard.writeText(textToCopy);
     } catch (err) {

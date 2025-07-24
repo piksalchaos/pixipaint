@@ -11,6 +11,7 @@
   font-size: 3rem;
   transition-duration: 0.5s;
   padding: 1rem;
+  max-width: 100rem;
 }
 
 .dayButtons {
@@ -27,6 +28,11 @@
   }
   button:focus {
     background-color: rgb(83, 83, 83);
+  }
+  button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background-color: transparent;
   }
 }
 
