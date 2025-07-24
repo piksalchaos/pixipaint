@@ -1,0 +1,41 @@
+.container {
+  position: absolute;
+  background-color: var(--background);
+  border-color: var(--highlight-med);
+  border-width: 0.5rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  transition-duration: 0.5s;
+  transition-property: opacity;
+  padding: 1rem;
+}
+
+.button {
+  display: block;
+  border-color: var(--highlight-med);
+  border-width: 0.5rem;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+}
+.button:hover {
+  background-color: gray;
+}
+.button:focus {
+  background-color: rgb(83, 83, 83);
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  .button {
+    font-size: 1.2rem;
+    padding: 0.3rem;
+    margin: 0.3rem;
+    border-width: 0.3rem;
+  }
+}

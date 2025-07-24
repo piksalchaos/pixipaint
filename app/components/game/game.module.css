@@ -1,0 +1,169 @@
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition-duration: 0.5s;
+  transition-property: opacity;
+}
+
+.puzzle {
+  display: grid;
+  grid-template-areas:
+    "infoDisplay columnMarkers"
+    "rowMarkers tiles";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  justify-content: center;
+  background-color: var(--highlight-med);
+  padding: var(--tile-margin);
+  border-radius: calc(var(--tile-border-radius) + var(--tile-margin)*2);
+  overflow: hidden;
+  width: 100%;
+  max-width: 45rem;
+  aspect-ratio: 1;
+}
+
+.infoDisplay {
+  grid-area: infoDisplay;
+  font-size: 2rem;
+  align-content: center;
+  padding: 1.5rem;
+  background-color: var(--highlight-low);
+  margin: var(--tile-margin);
+  border-radius: var(--tile-border-radius);
+}
+
+.iconParagraph {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.tileGrid {
+  background-color: var(--highlight-med);
+  grid-area: tiles;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.tile {
+  border-radius: var(--tile-border-radius);
+  margin: var(--tile-margin);
+}
+
+.columnMarkers {
+  grid-area: columnMarkers;
+  display: flex;
+}
+
+.columnMarker {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  align-items: center;
+  border-radius: var(--tile-border-radius);
+  margin: var(--tile-margin);
+}
+
+.rowMarkers {
+  grid-area: rowMarkers;
+  display: flex;
+  flex-direction: column;
+}
+
+.rowMarker {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 100%;
+  align-items: center;
+  border-radius: var(--tile-border-radius);
+  margin: var(--tile-margin);
+}
+
+.markerNumber {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.markerNumberCount {
+  font-size: 2rem;
+  position: absolute;
+}
+
+.markerNumberGroups {
+  font-size: 1.5rem;
+  position: absolute;
+  transform: translate(140%, 30%)
+}
+
+.palette {
+  margin-top: 1rem;
+  display: flex;
+  width: 100%;
+  max-width: 32rem;
+}
+
+.colorButton {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 100rem;
+  
+  margin: 2rem;
+  transition-duration: 100ms;
+}
+
+@media screen and (max-width: 768px) {
+  .markerNumber {
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .infoDisplay {
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+
+  .markerNumberCount {
+    font-size: 1.5rem;
+  }
+
+  .markerNumberGroups {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .markerNumber {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+  }
+  .infoDisplay {
+    font-size: 0.7rem;
+    padding: 0.75rem;
+  }
+
+  .markerNumberCount {
+    font-size: 1.2rem;
+  }
+
+  .markerNumberGroups {
+    font-size: 1rem;
+  }
+}
