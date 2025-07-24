@@ -1,4 +1,5 @@
 import styles from "./game.module.css";
+import { formatTime } from "@/app/lib/format-time";
 
 export function InfoDisplay({
   elapsedSeconds,
@@ -7,11 +8,6 @@ export function InfoDisplay({
   elapsedSeconds: number;
   mistakeCount: number;
 }) {
-  const formatTime = (seconds: number): string => {
-    return `${Math.floor(seconds / 60)
-      .toString()
-      .padStart(2, "0")}:${(seconds % 60).toString().padStart(2, "0")}`;
-  };
   return (
     <div className={styles.infoDisplay}>
       <div className={styles.iconParagraph}>
