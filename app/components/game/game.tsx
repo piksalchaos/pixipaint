@@ -23,7 +23,7 @@ export function Game({
     defineColorStyleVariables(colors);
   });
 
-  let [chosenColorId, setChosenColorId] = useState(0);
+  const [chosenColorId, setChosenColorId] = useState(0);
   const [mistakeCount, setMistakeCount] = useState(0);
 
   const handleTileMistake = () => {

@@ -15,7 +15,7 @@ export function StartPopup({
       </p>
       <div className={styles.dayButtons}>
         {patterns.map((_, index) => (
-          <button onClick={() => handleButtonClick(index)}>
+          <button key={index} onClick={() => handleButtonClick(index)}>
             Day {index + 1}
           </button>
         ))}
