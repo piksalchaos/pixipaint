@@ -6,11 +6,13 @@ import rawPattern from "@/app/patterns/amogus.json";
 
 export default function Home() {
   const [isStartPopupVisible, setisStartPopupVisible] = useState(true);
-  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [patternIndex, setPatternIndex] = useState<undefined | number>(
+    undefined
+  );
 
-  const handleStartButtonClick = () => {
+  const handleStartButtonClick = (patternIndex: number) => {
     setisStartPopupVisible(false);
-    setIsGameStarted(true);
+    setPatternIndex(patternIndex);
   };
   const pattern = {
     ...rawPattern,
@@ -20,11 +22,12 @@ export default function Home() {
   };
   return (
     <div className="flex flex-column w-full h-screen justify-center items-center">
-      <Game pattern={pattern} isStarted={isGameStarted} />
+      <Game patternIndex={patternIndex} />
 
-      {isStartPopupVisible && (
-        <StartPopup handleButtonClick={handleStartButtonClick} />
-      )}
+      <StartPopup
+        isVisible={isStartPopupVisible}
+        handleButtonClick={handleStartButtonClick}
+      />
     </div>
   );
 }

@@ -8,25 +8,21 @@ import { Palette } from "./palette";
 import { InfoDisplay } from "./info-display";
 import { defineColorStyleVariables } from "../../lib/color-style";
 import styles from "./game.module.css";
+import patterns from "@/app/patterns/patterns.json";
 
-export function Game({
-  pattern,
-  isStarted,
-}: {
-  pattern: GridPattern;
-  isStarted: boolean;
-}) {
-  const { width, height, grid, colors, prefilledTiles } = pattern;
+export function Game({ patternIndex }: { patternIndex?: number }) {
+  const { width, height, grid, colors, prefilledTiles } =
+    patterns[patternIndex ?? 0];
   useEffect(() => {
     defineColorStyleVariables(colors);
   });
 
   const timer = useTimer(false);
   useEffect(() => {
-    if (isStarted) {
+    if (patternIndex !== undefined) {
       timer.start();
     }
-  }, [isStarted]);
+  }, [patternIndex]);
 
   let [chosenColorId, setChosenColorId] = useState(0);
   const [mistakeCount, setMistakeCount] = useState(0);
@@ -54,7 +50,10 @@ export function Game({
   }, [filledTiles]);
 
   return (
-    <div className={styles.game}>
+    <div
+      className={styles.game}
+      style={{ opacity: patternIndex !== undefined ? 1 : 0 }}
+    >
       <div className={styles.puzzle}>
         <InfoDisplay
           elapsedSeconds={timer.seconds}
