@@ -2,7 +2,7 @@
 import { Game } from "./components/game/game";
 import { StartPopup } from "./components/start-popup";
 import { useState } from "react";
-import flowerPattern from "@/app/patterns/flower.json";
+import rawPattern from "@/app/patterns/bunny.json";
 
 export default function Home() {
   const [isStartPopupVisible, setisStartPopupVisible] = useState(true);
@@ -12,9 +12,15 @@ export default function Home() {
     setisStartPopupVisible(false);
     setIsGameStarted(true);
   };
+  const pattern = {
+    ...rawPattern,
+    prefilledTiles: rawPattern.prefilledTiles.map(
+      (arr: number[]) => [arr[0], arr[1]] as [number, number]
+    ),
+  };
   return (
     <div className="flex flex-column w-full h-screen justify-center items-center">
-      <Game pattern={flowerPattern} isStarted={isGameStarted} />
+      <Game pattern={pattern} isStarted={isGameStarted} />
 
       {isStartPopupVisible && (
         <StartPopup handleButtonClick={handleButtonClick} />

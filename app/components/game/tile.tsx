@@ -5,19 +5,24 @@ import { getColorStyleValue } from "../../lib/color-style";
 import styles from "./game.module.css";
 
 export function Tile({
+  index,
+  isFilled,
   colorId,
   chosenColorId,
   handleMistake,
+  handleFilled,
 }: {
+  index: number;
+  isFilled: boolean;
   colorId: number;
   chosenColorId: number;
   handleMistake: () => void;
+  handleFilled: (index: number) => void;
 }) {
-  const [isFilled, setIsFilled] = useState(false);
   const handleClick = () => {
     if (isFilled) return;
     if (chosenColorId === colorId) {
-      setIsFilled(true);
+      handleFilled(index);
       return;
     }
     handleMistake();

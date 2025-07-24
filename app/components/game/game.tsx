@@ -16,7 +16,7 @@ export function Game({
   pattern: GridPattern;
   isStarted: boolean;
 }) {
-  const { width, height, grid, colors } = pattern;
+  const { width, height, grid, colors, prefilledTiles } = pattern;
   useEffect(() => {
     defineColorStyleVariables(colors);
   });
@@ -25,16 +25,33 @@ export function Game({
   useEffect(() => {
     if (isStarted) {
       timer.start();
-    } else {
-      timer.stop();
     }
   }, [isStarted]);
+
   let [chosenColorId, setChosenColorId] = useState(0);
   const [mistakeCount, setMistakeCount] = useState(0);
 
   const handleTileMistake = () => {
     setMistakeCount((prevMistakeCount) => prevMistakeCount + 1);
   };
+  const initialFilledTiles = new Array(grid.length).fill(false);
+  for (const [x, y] of prefilledTiles) {
+    initialFilledTiles[y * width + x] = true;
+  }
+  const [filledTiles, setFilledTiles] = useState<boolean[]>(initialFilledTiles);
+  const handleTileFilled = (index: number) => {
+    setFilledTiles((prev) => {
+      const newFilledTiles = [...prev];
+      newFilledTiles[index] = true;
+      return newFilledTiles;
+    });
+  };
+  useEffect(() => {
+    const isAllFilled = filledTiles.every((filled) => filled);
+    if (isAllFilled) {
+      timer.stop();
+    }
+  }, [filledTiles]);
 
   return (
     <div className={styles.game}>
@@ -56,9 +73,12 @@ export function Game({
             return (
               <Tile
                 key={i}
+                index={i}
+                isFilled={filledTiles[i]}
                 colorId={colorId}
                 chosenColorId={chosenColorId}
                 handleMistake={handleTileMistake}
+                handleFilled={handleTileFilled}
               />
             );
           })}

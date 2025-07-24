@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --highlight-low: #1c1c1c;
-  --highlight-med: #242424;
+  --background: #191724;
+  --foreground: #e0def4;
+  --highlight-low: #21202e;
+  --highlight-med: #292838;
   --game-border-radius: 20px;
-  --tile-border-radius: 8px;
-  --tile-margin: 4px;
+  --tile-border-radius: 9px;
+  --tile-margin: 3px;
 }
 
 body {

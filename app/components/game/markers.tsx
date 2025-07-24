@@ -109,7 +109,7 @@ function MarkerNumber({
         className={styles.markerNumberCount}
         style={{ color: getColorStyleValue(colorId) }}
       >
-        {count}
+        <b>{count}</b>
       </p>
       {groups > 1 ? (
         <p className={styles.markerNumberGroups}>{groups}</p>
