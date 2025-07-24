@@ -110,14 +110,20 @@
   transform: translate(140%, 30%)
 }
 
+.palette {
+  margin-top: 1rem;
+  display: flex;
+  width: 100%;
+  max-width: 32rem;
+}
+
 .colorButton {
-  width: 6rem;
-  height: 6rem;
-  border-radius: 3rem;
-  border-width: 0.5rem;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 100rem;
   
-  margin: 1rem;
-  background-color: white;
+  margin: 2rem;
+  transition-duration: 100ms;
 }
 
 @media screen and (max-width: 768px) {

@@ -11,7 +11,7 @@ export function Palette({
   handleColorSelected: (colorId: number) => void;
 }) {
   return (
-    <div className="flex">
+    <div className={styles.palette}>
       {[...Array(colorAmount)].map((_, colorId) => {
         return (
           <ColorButton
@@ -40,7 +40,7 @@ function ColorButton({
       className={styles.colorButton}
       style={{
         backgroundColor: getColorStyleValue(colorId),
-        borderColor: isChosen ? "white" : "transparent",
+        transform: `scale(${isChosen ? 1.2 : 1})`,
       }}
       onClick={() => {
         if (!isChosen) handleSelected(colorId);
