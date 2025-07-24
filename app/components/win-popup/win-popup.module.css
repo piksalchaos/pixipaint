@@ -11,6 +11,7 @@
 }
 
 .button {
+  display: block;
   border-color: var(--highlight-med);
   border-width: 0.5rem;
   border-radius: 1rem;
