@@ -112,7 +112,12 @@ function MarkerNumber({
         <b>{count}</b>
       </p>
       {groups > 1 ? (
-        <p className={styles.markerNumberGroups}>{groups}</p>
+        <p
+          className={styles.markerNumberGroups}
+          style={{ color: getColorStyleValue(colorId) }}
+        >
+          {groups}
+        </p>
       ) : null}
     </div>
   );

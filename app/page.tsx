@@ -1,14 +1,14 @@
 "use client";
 import { Game } from "./components/game/game";
-import { StartPopup } from "./components/start-popup";
+import { StartPopup } from "./components/start-popup/start-popup";
 import { useState } from "react";
-import rawPattern from "@/app/patterns/bunny.json";
+import rawPattern from "@/app/patterns/amogus.json";
 
 export default function Home() {
   const [isStartPopupVisible, setisStartPopupVisible] = useState(true);
   const [isGameStarted, setIsGameStarted] = useState(false);
 
-  const handleButtonClick = () => {
+  const handleStartButtonClick = () => {
     setisStartPopupVisible(false);
     setIsGameStarted(true);
   };
@@ -23,7 +23,7 @@ export default function Home() {
       <Game pattern={pattern} isStarted={isGameStarted} />
 
       {isStartPopupVisible && (
-        <StartPopup handleButtonClick={handleButtonClick} />
+        <StartPopup handleButtonClick={handleStartButtonClick} />
       )}
     </div>
   );

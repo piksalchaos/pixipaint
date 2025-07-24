@@ -65,8 +65,8 @@ export function Game({
         <div
           className={styles.tileGrid}
           style={{
-            gridTemplateColumns: `repeat(${width}, 6rem)`,
-            gridTemplateRows: `repeat(${height}, 6rem)`,
+            gridTemplateColumns: `repeat(${width}, 1fr)`,
+            gridTemplateRows: `repeat(${height}, 1fr)`,
           }}
         >
           {grid.map((colorId, i) => {

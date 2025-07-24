@@ -1,4 +1,6 @@
 import styles from "./start-popup.module.css";
+import patterns from "@/app/patterns/patterns.json";
+
 export function StartPopup({
   handleButtonClick,
 }: {
@@ -9,7 +11,11 @@ export function StartPopup({
       <p>
         <b>PIXIPAINT</b>
       </p>
-      <button onClick={handleButtonClick}>play</button>
+      <div className={styles.dayButtons}>
+        {patterns.map((pattern, index) => (
+          <button onClick={handleButtonClick}>Day {index + 1}</button>
+        ))}
+      </div>
     </div>
   );
 }
