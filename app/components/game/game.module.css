@@ -61,6 +61,10 @@
 }
 
 .tile {
+  border-color: red;
+  transition-property: border-color;
+  transition-duration: 300ms;
+  border-width: 3px;
   border-radius: var(--tile-border-radius);
   margin: var(--tile-margin);
 }
