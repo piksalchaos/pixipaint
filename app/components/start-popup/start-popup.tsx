@@ -22,17 +22,18 @@ export function StartPopup({
       </p>
       <p>color every tile to win!</p>
       <p className="text-sm">
-        (this is a demo. As of right now the everything is super unpolished and
-        scuffed, but it will be better in the future!)
+        this is a demo. As of right now the everything is super unpolished and
+        scuffed, but it may be better in the future (if I decide to go back on
+        this project, which is a little unlikely).
       </p>
-      <div className="w-full">
+      <div className="flex w-full">
         <div className="m-4">
           <Image
             src="/instructions-1.png"
             alt="Instructions"
             width={327}
             height={254}
-            className="h-70 aspect-square"
+            className="h-70"
           />
           <p className="text-lg">
             numbers indicate how many tiles of that color are in a row/column
@@ -44,7 +45,7 @@ export function StartPopup({
             alt="Instructions"
             width={408}
             height={300}
-            className="h-70 aspect-square"
+            className="h-70"
           />
           <p className="text-lg">
             subscripts indicate how many separate groups a color has in a

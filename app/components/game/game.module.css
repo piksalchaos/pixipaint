@@ -35,6 +35,8 @@
   background-color: var(--highlight-low);
   margin: var(--tile-margin);
   border-radius: var(--tile-border-radius);
+  width: 11rem;
+  height: 11rem;
 }
 
 .iconParagraph {
@@ -137,6 +139,8 @@
   .infoDisplay {
     font-size: 0.8rem;
     padding: 1rem;
+    width: 8rem;
+    height: 8rem;
   }
 
   .markerNumberCount {
@@ -157,6 +161,8 @@
   .infoDisplay {
     font-size: 0.7rem;
     padding: 0.75rem;
+    width: 6rem;
+    height: 6rem;
   }
 
   .markerNumberCount {

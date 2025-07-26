@@ -19,7 +19,7 @@ export function WinPopup({
 
   const handleCopy = async () => {
     setAreResultsCopied(true);
-    const textToCopy = `[PIXIPAD]\nDay ${day}\nTime: ${formatTime(
+    const textToCopy = `[PIXIPAD]\nDay ${day + 1}\nTime: ${formatTime(
       seconds
     )}\nMistakes: ${mistakes}\nhttps://pixipaint-nu.vercel.app`;
     try {
@@ -34,7 +34,7 @@ export function WinPopup({
       <p>
         <b>YOU WON</b>
       </p>
-      <p>day {day}</p>
+      <p>day {day + 1}</p>
       <p>time: {formatTime(seconds)}</p>
       <p>mistakes: {mistakes}</p>
       <button className={styles.button} onClick={handleCopy}>

@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #191724;
+  --background: #232136;
   --foreground: #e0def4;
-  --highlight-low: #21202e;
-  --highlight-med: #292838;
+  --highlight-low: #2a283e;
+  --highlight-med: #36344d;
   --game-border-radius: 20px;
   --tile-border-radius: 9px;
   --tile-margin: 3px;
